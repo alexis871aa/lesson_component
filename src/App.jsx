@@ -1,5 +1,6 @@
 import logo from './assets/logo.svg';
 import { TimeComponent } from './components/Time/Time';
+import { MyComponent } from './components/MyComponent/MyComponent';
 import './App.css';
 
 export const App = () => {
@@ -19,6 +20,7 @@ export const App = () => {
 					Learn React
 				</a>
 				<TimeComponent />
+				<MyComponent />
 			</header>
 		</div>
 	);
