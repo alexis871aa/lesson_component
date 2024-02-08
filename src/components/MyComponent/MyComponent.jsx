@@ -1,15 +1,21 @@
 import { useState } from 'react';
+import styles from './MyComponent.module.css';
 
 export const MyComponent = () => {
-	const [obj, setObj] = useState({ a: 10, b: 20, c: 30 });
+	const [showRedText, setShowRedText] = useState(true);
 
-	// obj.a = 20; // так делать нельзя
+	const onClick = () => {
+		setShowRedText(!showRedText);
+	};
 
-	// setObj({ a: 20, b: 20, c: 30 }); // в react НАДО ТАК!
+	const text = <div className={showRedText ? styles.red : styles.white}>Текст</div>;
 
-	if (obj.a === 10) {
-		setObj({ ...obj, a: 20 }); // если в объекте много свойств, а поменять надо только одно
-	}
-
-	return <div>{obj.a}</div>;
+	return (
+		<>
+			{text}
+			<button onClick={onClick} id={Date.now()}>
+				Изменить цвет текста
+			</button>
+		</>
+	);
 };
